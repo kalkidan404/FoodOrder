@@ -1,3 +1,11 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
 model User {
   id        Int        @id @default(autoincrement())
   email     String     @unique
@@ -25,14 +33,16 @@ model CartItem {
 }
 
 model Order {
-  id        Int      @id @default(autoincrement())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
-  items     String
-  total     Float
+  id     Int    @id @default(autoincrement())
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
+  items  String
+  total  Float
+
   status    String   @default("pending")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  payment   Payment?
 }
 
 model Food {
@@ -53,4 +63,17 @@ model Restaurant {
   name        String
   description String
   food        Food[]
+}
+
+model Payment {
+  id             Int      @id @default(autoincrement())
+  order          Order    @relation(fields: [orderId], references: [id])
+  orderId        Int      @unique
+  amount         Float
+  currency       String   @default("ETB")
+  status         String   @default("pending")
+  transactionRef String   @unique
+  providerRef    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
