@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/api";
-import "../styles/Payment.css";
+import "../styles/payment.css";
 function Payment() {
   const { id } = useParams();
   const navigate = useNavigate();
