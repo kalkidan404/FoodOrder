@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import api from "../api/api";
 import { Link } from "react-router-dom";
-import "../styles/Restaurants.css";
+import "../styles/restaurants.css";
 function Restaurants(){
     const [restaurants, setRestaurants]=useState([]);
     const [Loading, setLoading]=useState(true);

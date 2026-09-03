@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import { AuthContext } from "../context/authContext";
-import "../styles/cart.css";
+import "../styles/Cart.css";
 function Cart() {
   const { user } = useContext(AuthContext);
 
