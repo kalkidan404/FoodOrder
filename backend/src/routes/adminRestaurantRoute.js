@@ -1,0 +1,11 @@
+const express=require("express");
+const route=express.Router();
+const {createRestaurant,getrestaurants,getrestaurant,updateRestaurant,removeRestaurant}=require("../controller/adminRestauranController");
+const auth=require("../middleware/auth");
+const adminauth=require("../middleware/adminMiddleware");
+route.post("/",auth,adminauth,createRestaurant);
+route.get("/",auth,adminauth,getrestaurants);
+route.get("/:id",auth,adminauth,getrestaurant);
+route.put("/:id",auth,adminauth,updateRestaurant);
+route.delete("/:id",auth,adminauth,removeRestaurant);
+module.exports=route;

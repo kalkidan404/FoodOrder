@@ -27,6 +27,8 @@ const getRestaurant = async (req, res, next) => {
     const restaurant = await prisma.Restaurant.findUnique({
       where: {
         id: restaurantId
+      },include:{
+        food:true,
       }
     });
 

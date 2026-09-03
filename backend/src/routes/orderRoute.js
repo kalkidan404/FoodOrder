@@ -10,7 +10,7 @@ const {
   cancelOrder
 } = require("../controller/orderController");
 
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/auth");
 
 route.post("/", authMiddleware, createOrder);
 

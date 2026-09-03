@@ -1,0 +1,173 @@
+.orders-page {
+  min-height: 100vh;
+  background: #fafafa;
+  padding: 50px 80px 80px;
+}
+
+.orders-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.orders-header {
+  margin-bottom: 35px;
+}
+
+.orders-header h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  color: #222;
+}
+
+.orders-header p {
+  margin: 0;
+  color: #777;
+}
+
+/* Order list */
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.order-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.order-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.order-card h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.order-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #fff5ef;
+  color: #ff6b35;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.order-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.order-info p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.order-total {
+  font-weight: 700 !important;
+  color: #ff6b35 !important;
+}
+
+/* Buttons */
+
+.order-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.order-view-button,
+.order-cancel-button {
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.order-view-button {
+  border: none;
+  background: #ff6b35;
+  color: white;
+}
+
+.order-view-button:hover {
+  background: #e85a27;
+}
+
+.order-cancel-button {
+  border: 1px solid #ddd;
+  background: white;
+  color: #d64545;
+}
+
+.order-cancel-button:hover {
+  background: #fff3f3;
+}
+
+/* Empty orders */
+
+.orders-empty {
+  background: white;
+  padding: 50px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.orders-empty h2 {
+  margin: 0 0 10px;
+  color: #222;
+}
+
+.orders-empty p {
+  margin: 0;
+  color: #777;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .orders-page {
+    padding: 40px 25px 60px;
+  }
+
+  .order-card-top {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .order-info {
+    grid-template-columns: 1fr;
+  }
+
+  .order-actions {
+    flex-direction: column;
+  }
+
+  .order-view-button,
+  .order-cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .orders-page {
+    padding: 30px 20px 50px;
+  }
+
+  .orders-header h1 {
+    font-size: 30px;
+  }
+}

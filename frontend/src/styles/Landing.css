@@ -1,0 +1,109 @@
+/* Whole landing page */
+.landing {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+/* Hero section */
+.landing-hero {
+  min-height: 500px;
+  padding: 80px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff5ef;
+}
+
+.landing-hero-content {
+  max-width: 700px;
+}
+
+.landing-hero h1 {
+  margin: 0 0 20px;
+  font-size: 52px;
+  line-height: 1.1;
+  color: #222;
+}
+
+.landing-hero h1 span {
+  color: #ff6b35;
+}
+
+.landing-hero p {
+  margin: 0 auto 30px;
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.landing-browse-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: #ff6b35;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.landing-browse-button:hover {
+  background: #e85a27;
+  transform: translateY(-2px);
+}
+
+/* Popular foods */
+.landing-popular {
+  padding: 70px 80px;
+}
+
+.landing-popular h2 {
+  margin: 0 0 35px;
+  text-align: center;
+  font-size: 32px;
+  color: #222;
+}
+
+.landing-foods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .landing-hero {
+    padding: 60px 30px;
+  }
+
+  .landing-hero h1 {
+    font-size: 42px;
+  }
+
+  .landing-popular {
+    padding: 50px 30px;
+  }
+
+  .landing-foods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .landing-hero h1 {
+    font-size: 34px;
+  }
+
+  .landing-hero p {
+    font-size: 16px;
+  }
+
+  .landing-foods {
+    grid-template-columns: 1fr;
+  }
+}

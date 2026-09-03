@@ -8,7 +8,7 @@ const {
   removeItem
 } = require("../controller/cartController");
 
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/auth");
 
 route.get("/", authMiddleware, getCart);
 

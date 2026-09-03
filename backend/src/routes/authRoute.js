@@ -9,13 +9,13 @@ const {
   logout
 } = require("../controller/authController");
 
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/auth");
 
 route.post("/login", login);
 
 route.post("/register", register);
 
-route.get("/getme", authMiddleware, getMe);
+route.get("/me", authMiddleware, getMe);
 
 route.post("/logout", authMiddleware, logout);
 

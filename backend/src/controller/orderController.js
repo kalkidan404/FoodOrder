@@ -136,7 +136,7 @@ const cancelOrder = async (req, res, next) => {
     });
 
     if (!order) {
-      return res.status(404).json({
+      return res.status(200).json({
         message: "Order not found"
       });
     }

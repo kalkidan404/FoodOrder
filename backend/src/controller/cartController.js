@@ -1,16 +1,17 @@
 
 const prisma = require("../config/prisma");
 
-const addToCart = async (req, res, next) => {
-  try {
-    const foodId = Number(req.params.foodId);
-    const { quantity } = req.body;
-    const userId = req.user.id;
 
-    // Check that the food exists
+  const addToCart = async (req, res, next) => {
+  try {
+    const { foodId, quantity } = req.body;
+
+    const userId = req.user.id;
+    const foodIdNumber = Number(foodId);
+
     const food = await prisma.Food.findUnique({
       where: {
-        id: foodId
+        id: foodIdNumber
       }
     });
 
@@ -20,17 +21,15 @@ const addToCart = async (req, res, next) => {
       });
     }
 
-    // Check if this food is already in this user's cart
     const existingItem = await prisma.CartItem.findUnique({
       where: {
         userId_foodId: {
           userId: userId,
-          foodId: foodId
+          foodId: foodIdNumber
         }
       }
     });
 
-    // If it already exists, increase the quantity
     if (existingItem) {
       const updatedItem = await prisma.CartItem.update({
         where: {
@@ -47,11 +46,10 @@ const addToCart = async (req, res, next) => {
       });
     }
 
-    // If it doesn't exist, create a new cart item
     const item = await prisma.CartItem.create({
       data: {
         userId: userId,
-        foodId: foodId,
+        foodId: foodIdNumber,
         quantity: quantity
       }
     });
@@ -60,7 +58,6 @@ const addToCart = async (req, res, next) => {
       message: "Food added to cart",
       item: item
     });
-
   } catch (error) {
     next(error);
   }
